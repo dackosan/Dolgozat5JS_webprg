@@ -16,11 +16,11 @@ export const getMovieById = (req, res) =>{
 export const createMovie = (req, res) =>{
     const {title, director, year, oscar} = req.body;
     if(!title || !director || !year){
-        return res.status(404).json({message: "Missing data"});
+        return res.status(404).json({message: "Missing data!"});
     }
 
     const newMovie = {title, director, year, oscar}
-    movies.push(newBook);
+    movies.push(newMovie);
 
     res.status(200).json(newMovie);
 }
@@ -38,7 +38,7 @@ export const updateMovie = (req, res) =>{
 
     movies[id] = {title, director, year, oscar};
 
-    res.status(200).json(newMovie);
+    res.status(200).json(movies[id]);
 }
 
 export const deleteMovie = (req, res) =>{
